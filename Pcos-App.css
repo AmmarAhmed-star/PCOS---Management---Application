@@ -1,0 +1,6 @@
+/* PCOS Management Application */
+body{margin:0;background:#fff1f2;font-family:sans-serif;color:#4a044e}
+.header{background:linear-gradient(135deg,#ec4899,#be123c);color:#fff;padding:40px 20px;text-align:center;border-radius:0 0 30px 30px}
+.card{background:#fff;padding:20px;border-radius:20px;margin:15px;box-shadow:0 8px 20px rgba(236,72,153,.15)}
+input,select{width:100%;padding:12px;border-radius:10px;border:1px solid #fecdd3;margin:8px 0;box-sizing:border-box}
+.btn-main{background:#ec4899;color:#fff;border:none;padding:14px;width:100%;border-radius:12px;font-weight:700;font-size:1rem;cursor:pointer}
