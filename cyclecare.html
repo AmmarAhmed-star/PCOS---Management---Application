@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CycleCare - PCOS Management - Ammar Ahmed</title>
+<link rel="stylesheet" href="cyclecare.css">
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:#FFF7FA;color:#0F172A;min-height:100vh;line-height:1.5}
+.topnav{max-width:1120px;margin:0 auto;padding:20px 24px;display:flex;justify-content:space-between;align-items:center}.logo{font-weight:800;font-size:22px;color:#0F172A;letter-spacing:-.5px}.logo span{color:#BE185D}.live{background:#BE185D;color:#fff;padding:8px 16px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.5px}
+.hero{max-width:1120px;margin:0 auto;padding:36px 24px 10px;text-align:center}.hero h1{font-size:clamp(38px,6vw,58px);line-height:1.08;margin:14px 0;letter-spacing:-1px;color:#0F172A}.hero h1 span{background:linear-gradient(90deg,#831843,#BE185D,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.hero p{color:#475569;max-width:640px;margin:0 auto;line-height:1.7;font-size:16px}
+.pill{background:#fff;border:1px solid #E2E8F0;padding:8px 14px;border-radius:999px;font-size:13px;font-weight:600;display:inline-block;margin:4px;color:#334155;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.wrap{max-width:1120px;margin:0 auto;padding:20px 24px}.card{background:#fff;border:1px solid #E2E8F0;border-radius:20px;padding:24px;margin-bottom:16px;box-shadow:0 4px 20px rgba(15,23,42,.06)}
+.card h3{color:#0F172A;letter-spacing:-.3px}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid #FFF7FA}.tab{padding:11px 18px;border-radius:999px;background:#F8FAFC;border:1px solid #E2E8F0;color:#334155;cursor:pointer;font-weight:700;font-size:14px;transition:.15s}.tab:hover{border-color:#FBCFE8;background:#FFF1F2}.tab.active{background:linear-gradient(90deg,#BE185D,#EC4899);border-color:transparent;color:#fff;box-shadow:0 6px 18px rgba(190,24,93,.3)}
+.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.controls label{font-size:13px;color:#475569;font-weight:600}.controls select,.controls input[type=number],.controls input[type=date]{background:#F8FAFC;border:1px solid #CBD5E1;color:#0F172A;padding:11px 12px;border-radius:10px;font-size:14px;outline:none}.controls select:focus,.controls input:focus{border-color:#EC4899;box-shadow:0 0 0 3px rgba(236,72,153,.15)}
+button{padding:12px 18px;border:none;border-radius:12px;background:linear-gradient(90deg,#BE185D,#EC4899);color:#fff;font-weight:700;cursor:pointer;font-size:14px;transition:.15s}button:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(190,24,93,.25)}button.secondary{background:#334155}button.green{background:linear-gradient(90deg,#16A34A,#22C55E)}button.red{background:#7F1D1D}
+.stats{display:flex;gap:12px;flex-wrap:wrap}.stat{flex:1;min-width:120px;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:16px;padding:16px;text-align:center}.stat b{font-size:24px;display:block;color:#0F172A}.stat span{font-size:12px;color:#64748B;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.chip{display:inline-block;padding:9px 14px;border-radius:999px;background:#F8FAFC;border:1px solid #E2E8F0;margin:4px;cursor:pointer;font-size:13px;font-weight:600;color:#334155}.chip.on{background:linear-gradient(90deg,#BE185D,#EC4899);border-color:transparent;color:#fff}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:12px}.day{background:#F8FAFC;border:1px solid #E2E8F0;border-radius:12px;padding:12px 4px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#334155}.day:hover{border-color:#EC4899}.day.period{background:linear-gradient(135deg,#DC2626,#F87171);color:#fff;border-color:transparent}.day.ovu{background:linear-gradient(135deg,#F59E0B,#FDE68A);color:#111}.day.today{outline:2px solid #EC4899;outline-offset:1px}
+.list-box{background:#F8FAFC;border:1px solid #E2E8F0;border-radius:14px;padding:16px;min-height:80px;color:#0F172A}.small{font-size:13px;color:#64748B;line-height:1.6}.footer{text-align:center;color:#94A3B8;font-size:13px;padding:16px}.footer b{color:#BE185D}
+.habit{display:flex;justify-content:space-between;align-items:center;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:12px;padding:12px 14px;margin:8px 0;font-weight:600}
+</style>
+</head>
+<body>
+<div class="topnav"><div class="logo">🌿 CycleCare</div><div class="live">● LIVE</div></div>
+<div class="hero"><div class="pill">✦ Women's Wellness Companion • By Ammar Ahmed</div><h1>Track Your Cycle.<br><span>Manage PCOS.</span></h1><p>Period tracking, PCOS management, symptom logging, daily check-in and healthy habits — all in one place. Private, simple, and stored only on your device.</p><div><span class="pill">🔥 LIVE</span><span class="pill">⭐ 6 Features</span><span class="pill">🔒 100% Private — Saved in Your Browser</span></div></div>
+<div class="wrap">
+<div class="card">
+<div class="tabs" id="tabs">
+<button class="tab active" type="button" data-tab="dashboard" onclick="switchTab('dashboard')">📊 Dashboard</button>
+<button class="tab" type="button" data-tab="tracker" onclick="switchTab('tracker')">📅 Period Tracker</button>
+<button class="tab" type="button" data-tab="symptoms" onclick="switchTab('symptoms')">🩺 Symptoms</button>
+<button class="tab" type="button" data-tab="checkin" onclick="switchTab('checkin')">✅ Daily Check-in</button>
+<button class="tab" type="button" data-tab="habits" onclick="switchTab('habits')">🌱 Habits</button>
+<button class="tab" type="button" data-tab="tips" onclick="switchTab('tips')">💡 Wellness Tips</button>
+<button class="tab" type="button" data-tab="score" onclick="switchTab('score')">📈 PCOS Score</button>
+<button class="tab" type="button" data-tab="report" onclick="switchTab('report')">📄 Doctor Report</button>
+<button class="tab" type="button" data-tab="diet" onclick="switchTab('diet')">🥗 Diet Plan</button>
+<button class="tab" type="button" data-tab="history" onclick="switchTab('history')">📈 History</button>
+<button class="tab" type="button" data-tab="reminders" onclick="switchTab('reminders')">🔔 Reminders</button>
+<button class="tab" type="button" data-tab="yoga" onclick="switchTab('yoga')">🧘 Yoga & Exercise</button>
+<button class="tab" type="button" data-tab="diary" onclick="switchTab('diary')">📝 Diary</button>
+</div>
+
+<div id="panel-dashboard">
+<h3 style="margin:0">📊 Today — Cycle Overview</h3>
+<p class="small">Your next period and ovulation are auto-calculated from your last period date. All data stays only in your browser.</p>
+<div class="controls"><label>Last Period Start</label><input type="date" id="lastPeriod"><label>Cycle Length (days)</label><input type="number" id="cycleLen" value="28" min="21" max="45" style="width:90px"><button type="button" class="green" onclick="saveSettings()">💾 Save</button></div>
+<div class="stats" style="margin-top:14px"><div class="stat"><b id="cycleDay">—</b><span>Cycle Day</span></div><div class="stat"><b id="nextPeriod">—</b><span>Next Period</span></div><div class="stat"><b id="ovuDay">—</b><span>Ovulation (Approx)</span></div><div class="stat"><b id="daysLeft">—</b><span>Days Left</span></div></div>
+<div class="list-box" style="margin-top:12px"><b id="dashMsg">Set your last period date to see your prediction.</b><p class="small" id="dashTip" style="margin:6px 0 0">Tip: A cycle length of 21–35 days is normal. If your cycle is very irregular, please consult a doctor.</p></div>
+</div>
+
+<div id="panel-tracker" style="display:none">
+<h3 style="margin:0">📅 Period Tracker — This Month</h3><p class="small">Click any date to mark Period / Clear. Red = Period, Yellow = Ovulation (approx).</p>
+<div class="controls"><button type="button" onclick="prevMonth()">◀ Prev</button><b id="monthLabel"></b><button type="button" onclick="nextMonth()">Next ▶</button><button type="button" class="secondary" onclick="clearMarks()">🗑️ Clear Marks</button></div>
+<div class="cal" id="calendar"></div><p class="small" id="calMsg">Tap a date to mark Period.</p>
+</div>
+
+<div id="panel-symptoms" style="display:none">
+<h3 style="margin:0">🩺 Symptoms — How Do You Feel Today?</h3><p class="small">Click symptoms to select them, then press Save below.</p>
+<div id="symptomChips"></div>
+<div class="controls" style="margin-top:10px"><button type="button" class="green" onclick="saveSymptoms()">💾 Save Todays Symptoms</button><button type="button" class="secondary" onclick="clearSymptoms()">Clear</button></div>
+<div class="list-box" style="margin-top:12px"><b>Saved:</b><p class="small" id="savedSymptoms">Nothing saved yet.</p></div>
+</div>
+
+<div id="panel-checkin" style="display:none">
+<h3 style="margin:0">✅ Daily Check-in</h3><p class="small">Track Mood, Energy, Sleep, Water and Exercise daily — patterns become easy to understand.</p>
+<div class="controls"><label>Mood</label><select id="mood"><option>😊 Happy</option><option>😐 Okay</option><option>😔 Low</option><option>😡 Irritated</option><option>😰 Anxious</option></select><label>Energy (1-10)</label><input type="number" id="energy" value="6" min="1" max="10" style="width:80px"><label>Sleep (hrs)</label><input type="number" id="sleep" value="7" min="0" max="14" style="width:80px"><label>Water (glasses)</label><input type="number" id="water" value="6" min="0" max="15" style="width:80px"></div>
+<div class="controls" style="margin-top:10px"><label>Exercise</label><select id="exercise"><option>🚶 Walk</option><option>🧘 Yoga</option><option>🏃 Run</option><option>🏋️ Gym</option><option>❌ Rest Day</option></select><button type="button" class="green" onclick="saveCheckin()">💾 Save Check-in</button></div>
+<div class="list-box" style="margin-top:12px"><b>Todays Check-in:</b><p class="small" id="savedCheckin">No check-in yet today.</p></div>
+</div>
+
+<div id="panel-habits" style="display:none">
+<h3 style="margin:0">🌱 Healthy Habits for PCOS</h3><p class="small">Small daily habits — tick them off and build a streak.</p>
+<div id="habitList"></div><p class="small" id="habitScore">Completed: 0 / 6</p>
+</div>
+
+<div id="panel-tips" style="display:none">
+<h3 style="margin:0">💡 Wellness Tips</h3>
+<div class="list-box"><b>🥗 Diet:</b><p class="small">Choose high-fibre foods, add protein to every meal, and limit sugary drinks. Whole grains and green vegetables help with PCOS.</p></div>
+<div class="list-box" style="margin-top:10px"><b>🏃 Movement:</b><p class="small">Walk or do yoga for 30 minutes daily. Regular light exercise works better for PCOS than occasional heavy workouts.</p></div>
+<div class="list-box" style="margin-top:10px"><b>😴 Sleep:</b><p class="small">Get 7–8 hours of sleep. Late nights and phone light can disturb hormones.</p></div>
+<div class="list-box" style="margin-top:10px"><b>⚠️ When to See a Doctor:</b><p class="small">Missed period for 3+ months, very heavy bleeding, severe pain, or sudden weight gain / hair fall — please consult a doctor. This app is not medical advice.</p></div>
+<div id="panel-score" style="display:none">
+<h3 style="margin:0">📈 PCOS Score — Risk Check</h3><p class="small">6 simple questions. Answer honestly — this is only for awareness, not a diagnosis. It will show Low / Medium / High risk based on your score.</p>
+<div id="scoreQuestions"></div>
+<div class="controls" style="margin-top:12px"><button type="button" class="green" onclick="calcScore()">📊 Calculate My Score</button><button type="button" class="secondary" onclick="resetScore()">🔄 Reset</button></div>
+<div class="list-box" style="margin-top:12px"><b id="scoreResult">Answer all 6 questions, then press Calculate.</b><p class="small" id="scoreDetail" style="margin:6px 0 0"></p><p class="small" id="scoreAdvice" style="margin:6px 0 0"></p></div>
+<p class="small">⚠️ Note: This is not a medical diagnosis. Only a doctor can diagnose PCOS with tests (Ultrasound + Hormone tests).</p>
+</div>
+
+<div id="panel-report" style="display:none">
+<h3 style="margin:0">📄 Doctor Report</h3><p class="small">Press one button — your full report with Period + Symptoms + Check-in + Habits + PCOS Score will be generated. Save it as Print / PDF and show it to your doctor.</p>
+<div class="controls"><button type="button" class="green" onclick="generateReport()">📄 Generate Report</button><button type="button" onclick="window.print()">🖨️ Print / Save as PDF</button></div>
+<div class="list-box" style="margin-top:12px" id="reportBox"><b>No report yet.</b><p class="small">Press Generate Report.</p></div>
+<p class="small">Tip: In Print, choose Destination → Save as PDF to save it as a PDF.</p>
+</div>
+<div id="panel-diet" style="display:none">
+<h3 style="margin:0">🥗 7-Day PCOS Diet Plan</h3><p class="small">Simple home food. High fibre + protein, low sugar. Select a day to see the full plan.</p>
+<div class="controls"><select id="dietDay" onchange="renderDiet()"><option value="0">Monday</option><option value="1">Tuesday</option><option value="2">Wednesday</option><option value="3">Thursday</option><option value="4">Friday</option><option value="5">Saturday</option><option value="6">Sunday</option></select><button type="button" class="green" onclick="renderDiet()">Show Plan</button></div>
+<div class="list-box" style="margin-top:12px" id="dietBox"></div>
+<div class="list-box" style="margin-top:10px"><b>✅ Eat More:</b><p class="small">Green vegetables, fruits, whole grains, dal, eggs, curd, nuts, seeds, water.</p><b>❌ Avoid / Limit:</b><p class="small">Sugary drinks, junk food, maida / white bread, too much fried food, excess sweets.</p></div>
+</div>
+
+<div id="panel-history" style="display:none">
+<h3 style="margin:0">📈 History & Progress</h3><p class="small">Your saved data from this browser — Period marks, check-ins, habits and PCOS score.</p>
+<div class="controls"><button type="button" class="green" onclick="renderHistory()">🔄 Refresh History</button><button type="button" class="red" onclick="clearAllData()">🗑️ Clear All Data</button></div>
+<div class="list-box" style="margin-top:12px" id="historyBox"></div>
+<div class="list-box" style="margin-top:10px"><b>Cycle Pattern (Visual):</b><p class="small" id="historyBars">No data yet.</p><div id="historyBarVisual" style="display:flex;gap:4px;align-items:flex-end;height:60px;margin-top:8px"></div></div>
+</div>
+
+<div id="panel-reminders" style="display:none">
+<h3 style="margin:0">🔔 Reminders</h3><p class="small">Set daily reminders for water and medicine. Reminders are saved in your browser.</p>
+<div class="controls"><label>Water Goal (glasses)</label><input type="number" id="waterGoal" value="8" min="4" max="15" style="width:80px"><label>Medicine / Vitamin Time</label><input type="date" id="medDate"><input type="number" id="medTime" placeholder="e.g. 9 AM" style="width:110px"></div>
+<div class="controls" style="margin-top:10px"><input type="number" id="waterDrank" value="0" min="0" max="20" style="width:90px"><button type="button" class="green" onclick="addWater()">💧 +1 Glass Water</button><button type="button" class="secondary" onclick="resetWater()">Reset Water</button><button type="button" class="green" onclick="saveReminder()">💾 Save Reminder</button></div>
+<div class="list-box" style="margin-top:12px"><b>Today:</b><p class="small" id="reminderBox">Water: 0 glasses. Set your goal above.</p><p class="small" id="periodReminder">Period reminder will appear here after you set Last Period in Dashboard.</p></div>
+</div>
+
+<div id="panel-yoga" style="display:none">
+<h3 style="margin:0">🧘 Yoga & Exercise for PCOS</h3><p class="small">Best 6 poses / exercises for PCOS — 10-15 minutes daily is enough. Stop if you feel pain.</p>
+<div id="yogaList"></div>
+</div>
+
+<div id="panel-diary" style="display:none">
+<h3 style="margin:0">📝 Personal Diary / Notes</h3><p class="small">Write anything — mood, pain, thoughts. Private, saved only in your browser.</p>
+<div class="controls"><input type="date" id="diaryDate"><button type="button" class="green" onclick="saveDiary()">💾 Save Note</button><button type="button" class="secondary" onclick="clearDiary()">Clear</button></div>
+<textarea id="diaryText" rows="5" style="width:100%;margin-top:10px;padding:12px;border-radius:12px;border:1px solid #E2E8F0;font-family:inherit;font-size:14px" placeholder="Today I feel..."></textarea>
+<div class="list-box" style="margin-top:12px"><b>Saved Note:</b><p class="small" id="savedDiary">No note saved yet.</p></div>
+</div>
+</div>
+</div>
+<div class="card"><h3 style="margin:0 0 8px">🎯 PCOS — Simple Explanation</h3><p class="small" style="margin:0">In PCOS, hormones become slightly imbalanced — this can cause irregular periods, acne, hair fall and weight gain. Regular tracking and healthy habits make it easier to manage. Track your cycle, see the pattern, and it becomes easier to explain to your doctor.</p></div>
+</div>
+<div class="footer">CycleCare • By <b>Ammar Ahmed</b> • Private — Data stays only in your browser</div>
+<script>
+var symptomsList=['Cramps','Bloating','Mood Swings','Acne','Hair Fall','Fatigue','Headache','Back Pain','Nausea','Breast Tenderness','Cravings','Irregular Period'];
+var selectedSymptoms=[];var marks={};var viewDate=new Date();
+var habitsList=['🥗 Healthy Breakfast','💧 8 Glasses Water','🚶 30 Min Walk','🧘 10 Min Yoga / Stretch','😴 7+ Hrs Sleep','📵 No Phone 30 Min Before Sleep'];
+var habitDone=[];
+function switchTab(tab){document.querySelectorAll('.tab').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-tab')===tab)});['dashboard','tracker','symptoms','checkin','habits','tips','score','report','diet','history','reminders','yoga','diary'].forEach(function(p){var el=document.getElementById('panel-'+p);if(el)el.style.display=(p===tab)?'block':'none'});if(tab==='tracker')renderCalendar();}
+function saveSettings(){var d=document.getElementById('lastPeriod').value;var len=parseInt(document.getElementById('cycleLen').value)||28;if(!d){alert('Please choose your last period date');return}localStorage.setItem('cc_last',d);localStorage.setItem('cc_len',len);updateDashboard();alert('Saved ✅');}
+function updateDashboard(){var d=localStorage.getItem('cc_last');var len=parseInt(localStorage.getItem('cc_len')||28);document.getElementById('cycleLen').value=len;if(!d)return;document.getElementById('lastPeriod').value=d;var last=new Date(d);var today=new Date();today.setHours(0,0,0,0);var diff=Math.floor((today-last)/86400000)+1;var next=new Date(last);next.setDate(next.getDate()+len);var ovu=new Date(last);ovu.setDate(ovu.getDate()+Math.floor(len/2));var left=Math.max(0,Math.ceil((next-today)/86400000));document.getElementById('cycleDay').innerText='Day '+Math.max(1,diff);document.getElementById('nextPeriod').innerText=next.toDateString().slice(4);document.getElementById('ovuDay').innerText=ovu.toDateString().slice(4);document.getElementById('daysLeft').innerText=left+' days';document.getElementById('dashMsg').innerText='Cycle Day '+diff+' — Next period '+next.toDateString().slice(4)+' is expected.';}
+function renderCalendar(){var y=viewDate.getFullYear(),m=viewDate.getMonth();document.getElementById('monthLabel').innerText=viewDate.toLocaleString('en',{month:'long',year:'numeric'});var box=document.getElementById('calendar');box.innerHTML='';var first=new Date(y,m,1);var days=new Date(y,m+1,0).getDate();for(var i=0;i<first.getDay();i++){var e=document.createElement('div');box.appendChild(e);}for(var d=1;d<=days;d++){var dt=new Date(y,m,d);var key=dt.toISOString().slice(0,10);var el=document.createElement('div');el.className='day';el.innerText=d;if(marks[key])el.classList.add('period');var today=new Date();if(dt.toDateString()===today.toDateString())el.classList.add('today');(function(k,el2){el2.onclick=function(){if(marks[k])delete marks[k];else marks[k]='period';localStorage.setItem('cc_marks',JSON.stringify(marks));renderCalendar();}})(key,el);box.appendChild(el);}document.getElementById('calMsg').innerText='Marked days: '+Object.keys(marks).length;}
+function prevMonth(){viewDate.setMonth(viewDate.getMonth()-1);renderCalendar();}function nextMonth(){viewDate.setMonth(viewDate.getMonth()+1);renderCalendar();}function clearMarks(){marks={};localStorage.removeItem('cc_marks');renderCalendar();}
+function renderSymptoms(){var box=document.getElementById('symptomChips');box.innerHTML='';symptomsList.forEach(function(s){var c=document.createElement('span');c.className='chip'+(selectedSymptoms.includes(s)?' on':'');c.innerText=s;c.onclick=function(){if(selectedSymptoms.includes(s))selectedSymptoms=selectedSymptoms.filter(function(x){return x!==s});else selectedSymptoms.push(s);renderSymptoms();};box.appendChild(c);});}
+function saveSymptoms(){localStorage.setItem('cc_symptoms_'+new Date().toISOString().slice(0,10),JSON.stringify(selectedSymptoms));document.getElementById('savedSymptoms').innerText=selectedSymptoms.length?selectedSymptoms.join(', '):'No symptom selected.';alert('Symptoms saved ✅');}function clearSymptoms(){selectedSymptoms=[];renderSymptoms();}
+function saveCheckin(){var data={mood:document.getElementById('mood').value,energy:document.getElementById('energy').value,sleep:document.getElementById('sleep').value,water:document.getElementById('water').value,exercise:document.getElementById('exercise').value};localStorage.setItem('cc_checkin_'+new Date().toISOString().slice(0,10),JSON.stringify(data));document.getElementById('savedCheckin').innerText=data.mood+' | Energy '+data.energy+'/10 | Sleep '+data.sleep+'h | Water '+data.water+' glasses | '+data.exercise;alert('Check-in saved ✅');}
+function renderHabits(){var box=document.getElementById('habitList');box.innerHTML='';habitsList.forEach(function(h,i){var row=document.createElement('div');row.className='habit';var done=habitDone.includes(i);row.innerHTML='<span>'+(done?'✅ ':'⬜ ')+h+'</span>';var b=document.createElement('button');b.innerText=done?'Done ✓':'Mark Done';b.className=done?'green':'secondary';b.onclick=function(){if(done)habitDone=habitDone.filter(function(x){return x!==i});else habitDone.push(i);localStorage.setItem('cc_habits_'+new Date().toISOString().slice(0,10),JSON.stringify(habitDone));renderHabits();};row.appendChild(b);box.appendChild(row);});document.getElementById('habitScore').innerText='Completed: '+habitDone.length+' / '+habitsList.length;}
+
+var scoreQs=[
+{q:'1. Are your periods irregular? (Gap more than 35 days or missed often)',opts:['Regular (0)','Sometimes Irregular (1)','Often Irregular (2)','Very Irregular / Missed (3)']},
+{q:'2. Do you have acne / oily skin often?',opts:['No (0)','Mild (1)','Moderate (2)','Severe (3)']},
+{q:'3. Do you have unwanted hair growth (face / chest / back)?',opts:['No (0)','Little (1)','Noticeable (2)','A Lot (3)']},
+{q:'4. Do you have hair fall / thinning hair?',opts:['No (0)','Little (1)','Moderate (2)','A Lot (3)']},
+{q:'5. Weight gain / difficulty losing weight?',opts:['No (0)','Little (1)','Moderate (2)','A Lot (3)']},
+{q:'6. Do you feel tired / mood swings / dark patches (neck / underarms)?',opts:['No (0)','Sometimes (1)','Often (2)','Always (3)']}
+];
+var scoreAns=[-1,-1,-1,-1,-1,-1];
+function renderScoreQs(){var box=document.getElementById('scoreQuestions');if(!box)return;box.innerHTML='';scoreQs.forEach(function(item,qi){var d=document.createElement('div');d.style.margin='10px 0';d.innerHTML='<b>'+item.q+'</b>';var row=document.createElement('div');item.opts.forEach(function(o,oi){var c=document.createElement('span');c.className='chip'+(scoreAns[qi]===oi?' on':'');c.innerText=o;c.onclick=function(){scoreAns[qi]=oi;renderScoreQs();};row.appendChild(c);});d.appendChild(row);box.appendChild(d);});}
+function calcScore(){if(scoreAns.includes(-1)){alert('Please answer all 6 questions');return;}var total=scoreAns.reduce(function(a,b){return a+b},0);var level='',detail='',advice='';if(total<=4){level='🟢 LOW RISK — Score: '+total+' / 18';detail='Your answers show low signs of PCOS. Keep tracking your cycle and healthy habits.';advice='Advice: Continue healthy diet, 30 min walk daily, and track cycle regularly.';}else if(total<=9){level='🟡 MEDIUM RISK — Score: '+total+' / 18';detail='Some signs are present. It is good to track for 2-3 months and talk to a doctor.';advice='Advice: Track cycle + symptoms daily, avoid sugary drinks, sleep 7-8 hrs, and consult a doctor if irregularity continues.';}else{level='🔴 HIGH RISK — Score: '+total+' / 18';detail='Many signs are present. Please consult a doctor soon for proper tests.';advice='Advice: Book a doctor visit. Doctor may suggest Ultrasound + Hormone tests (LH, FSH, Testosterone). Do not self-diagnose.';}document.getElementById('scoreResult').innerText=level;document.getElementById('scoreDetail').innerText=detail;document.getElementById('scoreAdvice').innerText=advice;localStorage.setItem('cc_score',JSON.stringify({total:total,level:level,date:new Date().toISOString().slice(0,10)}));}
+function resetScore(){scoreAns=[-1,-1,-1,-1,-1,-1];renderScoreQs();document.getElementById('scoreResult').innerText='Answer all 6 questions, then press Calculate.';document.getElementById('scoreDetail').innerText='';document.getElementById('scoreAdvice').innerText='';}
+function generateReport(){var today=new Date().toISOString().slice(0,10);var last=localStorage.getItem('cc_last')||'Not set';var len=localStorage.getItem('cc_len')||'28';var sym=localStorage.getItem('cc_symptoms_'+today)||'[]';var chk=localStorage.getItem('cc_checkin_'+today)||'null';var hab=localStorage.getItem('cc_habits_'+today)||'[]';var sc=localStorage.getItem('cc_score')||'null';var marksCount=0;try{marksCount=Object.keys(JSON.parse(localStorage.getItem('cc_marks')||'{}')).length;}catch(e){marksCount=0;}var chkText='Not done today';if(chk!=='null'){var cd=JSON.parse(chk);chkText=cd.mood+' | Energy '+cd.energy+'/10 | Sleep '+cd.sleep+'h | Water '+cd.water+' glasses | '+cd.exercise;}var symText='None selected';try{var sa=JSON.parse(sym);if(sa.length)symText=sa.join(', ');}catch(e){}var scText='Not calculated yet';if(sc!=='null'){var sd=JSON.parse(sc);scText=sd.level+' (Date: '+sd.date+')';}var habText='0 / 6';try{habText=JSON.parse(hab).length+' / 6 habits done';}catch(e){}var html2='<h3 style="margin:0">CycleCare — Doctor Report</h3><p class="small">Date: '+today+' | Generated from CycleCare App</p><p><b>Last Period:</b> '+last+'<br><b>Cycle Length:</b> '+len+' days<br><b>Total Marked Period Days:</b> '+marksCount+'<br><b>Todays Symptoms:</b> '+symText+'<br><b>Todays Check-in:</b> '+chkText+'<br><b>Todays Habits:</b> '+habText+'<br><b>PCOS Score:</b> '+scText+'</p><p class="small">Patient Note: This report is generated from self-tracked data in the app. It is not a medical diagnosis. Please consult a doctor for proper diagnosis.</p>';document.getElementById('reportBox').innerHTML=html2;alert('Report ready ✅ — Now press Print / Save as PDF');}
+
+
+var dietPlans=[
+{b:'Oats + Milk + Banana',l:'Dal + Brown Rice + Salad',d:'Grilled Paneer + Roti + Vegetables',s:'Curd + Nuts'},
+{b:'Poha + Peanuts + Tea (less sugar)',l:'Rajma + Rice + Cucumber',d:'Chicken / Soya + Roti + Dal',s:'Fruit + Seeds'},
+{b:'Eggs + Whole Wheat Toast',l:'Chole + Rice + Salad',d:'Vegetable Soup + Paneer',s:'Buttermilk + Roasted Chana'},
+{b:'Idli + Sambar',l:'Dal + Roti + Bhindi',d:'Fish / Tofu + Rice + Salad',s:'Apple + Walnuts'},
+{b:'Smoothie (Banana + Milk + Seeds)',l:'Veg Pulao + Curd + Salad',d:'Dal + Roti + Palak',s:'Green Tea + Almonds'},
+{b:'Paratha (less oil) + Curd',l:'Kadhi + Rice + Salad',d:'Paneer Tikka + Roti',s:'Orange + Pumpkin Seeds'},
+{b:'Upma + Coconut + Tea',l:'Chicken Curry + Rice + Salad',d:'Khichdi + Curd + Papad',s:'Milk + Dates'}];
+var dietDays=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+function renderDiet(){var i=parseInt(document.getElementById('dietDay').value)||0;var p=dietPlans[i];document.getElementById('dietBox').innerHTML='<b>'+dietDays[i]+' — Full Day Plan</b><p><b>🌅 Breakfast:</b> '+p.b+'<br><b>☀️ Lunch:</b> '+p.l+'<br><b>🌙 Dinner:</b> '+p.d+'<br><b>🍎 Snack:</b> '+p.s+'</p><p class="small">Drink 8 glasses of water. Avoid sugary drinks today.</p>';}
+function renderHistory(){var today=new Date().toISOString().slice(0,10);var marksCount=0;try{marksCount=Object.keys(JSON.parse(localStorage.getItem('cc_marks')||'{}')).length;}catch(e){}var sc=localStorage.getItem('cc_score');var scText='Not calculated yet';if(sc){try{var sd=JSON.parse(sc);scText=sd.level+' (Date: '+sd.date+')';}catch(e){}}var chk=localStorage.getItem('cc_checkin_'+today);var chkText='No check-in today';if(chk){try{var cd=JSON.parse(chk);chkText=cd.mood+' | Energy '+cd.energy+'/10 | Sleep '+cd.sleep+'h | Water '+cd.water+' glasses';}catch(e){}}var hab=localStorage.getItem('cc_habits_'+today);var habText='0 / 6';try{habText=JSON.parse(hab||'[]').length+' / 6 habits';}catch(e){}document.getElementById('historyBox').innerHTML='<b>Summary</b><p>Total Marked Period Days: '+marksCount+'<br>PCOS Score: '+scText+'<br>Todays Check-in: '+chkText+'<br>Todays Habits: '+habText+'</p>';var vis=document.getElementById('historyBarVisual');vis.innerHTML='';var vals=[marksCount,JSON.parse(hab||'[]').length,chk?1:0];vals.forEach(function(v){var d=document.createElement('div');d.style.width='28px';d.style.height=Math.max(8,v*10)+'px';d.style.background='linear-gradient(180deg,#BE185D,#EC4899)';d.style.borderRadius='6px 6px 0 0';vis.appendChild(d);});document.getElementById('historyBars').innerText='Bars: Period Days | Habits Done | Check-in Done';}
+function clearAllData(){if(!confirm('Clear ALL saved data? This cannot be undone.'))return;Object.keys(localStorage).forEach(function(k){if(k.indexOf('cc_')===0)localStorage.removeItem(k);});alert('All data cleared.');location.reload();}
+function addWater(){var cur=parseInt(document.getElementById('waterDrank').value||0);cur++;document.getElementById('waterDrank').value=cur;var goal=parseInt(document.getElementById('waterGoal').value||8);document.getElementById('reminderBox').innerText='Water: '+cur+' / '+goal+' glasses.';localStorage.setItem('cc_water_'+new Date().toISOString().slice(0,10),String(cur));if(cur>=goal)document.getElementById('reminderBox').innerText+=' — Goal reached! Great job!';}
+function resetWater(){document.getElementById('waterDrank').value=0;document.getElementById('reminderBox').innerText='Water: 0 glasses.';}
+function saveReminder(){var goal=document.getElementById('waterGoal').value;var med=document.getElementById('medDate').value;localStorage.setItem('cc_reminder',JSON.stringify({goal:goal,med:med}));alert('Reminder saved ✅');updatePeriodReminder();}
+function updatePeriodReminder(){var d=localStorage.getItem('cc_last');var len=parseInt(localStorage.getItem('cc_len')||28);if(!d)return;var last=new Date(d);var next=new Date(last);next.setDate(next.getDate()+len);var today=new Date();var left=Math.ceil((next-today)/86400000);var el=document.getElementById('periodReminder');if(el)el.innerText='🔔 Period Reminder: Next period in '+Math.max(0,left)+' days ('+next.toDateString().slice(4)+'). Drink water and rest well.';}
+var yogaList=[{n:'🧘 Surya Namaskar (5 rounds)',d:'Full body warm-up. Improves blood flow and hormones.'},{n:'🦋 Butterfly Pose (Baddha Konasana) — 2 min',d:'Opens hips, helps period flow and PCOS.'},{n:'🐍 Cobra Pose (Bhujangasana) — 1 min',d:'Strengthens back, helps digestion and hormones.'},{n:'🧎 Cat-Cow Pose — 2 min',d:'Relieves back pain and cramps.'},{n:'🚶 30 Min Walk',d:'Best daily exercise for PCOS. Easy and effective.'},{n:'🧘 Anulom Vilom (5 min)',d:'Calms mind, reduces stress and mood swings.'}];
+function renderYoga(){var box=document.getElementById('yogaList');if(!box)return;box.innerHTML='';yogaList.forEach(function(y){var d=document.createElement('div');d.className='list-box';d.style.marginTop='10px';d.innerHTML='<b>'+y.n+'</b><p class="small" style="margin:4px 0 0">'+y.d+'</p>';box.appendChild(d);});}
+function saveDiary(){var date=document.getElementById('diaryDate').value||new Date().toISOString().slice(0,10);var txt=document.getElementById('diaryText').value;if(!txt.trim()){alert('Please write something first');return;}localStorage.setItem('cc_diary_'+date,txt);document.getElementById('savedDiary').innerText=date+': '+txt;alert('Diary saved ✅');}
+function clearDiary(){document.getElementById('diaryText').value='';}
+
+function loadAll(){try{marks=JSON.parse(localStorage.getItem('cc_marks')||'{}');}catch(e){marks={};}var today=new Date().toISOString().slice(0,10);try{habitDone=JSON.parse(localStorage.getItem('cc_habits_'+today)||'[]');}catch(e){habitDone=[];}var s=localStorage.getItem('cc_symptoms_'+today);if(s)document.getElementById('savedSymptoms').innerText=JSON.parse(s).join(', ')||'—';var c=localStorage.getItem('cc_checkin_'+today);if(c){var d=JSON.parse(c);document.getElementById('savedCheckin').innerText=d.mood+' | Energy '+d.energy+'/10 | Sleep '+d.sleep+'h | Water '+d.water+' glasses | '+d.exercise;}updateDashboard();renderCalendar();renderSymptoms();renderHabits();}
+renderScoreQs();
+renderDiet();
+renderYoga();
+updatePeriodReminder();
+loadAll();
+</script>
+</body>
+</html>
