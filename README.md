@@ -7,7 +7,8 @@
 
 Track your cycle. Manage PCOS. All in one place — private, simple, and beautiful.
 
-Period tracking, PCOS management, symptom logging, daily check-in, habits, diet plan, PCOS score, doctor report, reminders, yoga and personal diary — all in one app.
+Period tracking, PCOS management, symptom loggi
+ng, daily check-in, habits, diet plan, PCOS score, doctor report, reminders, yoga and personal diary — all in one app.
 
 **Live Demo:** https://ammarahmed-star.github.io/PCOS---Management---Application/
 
