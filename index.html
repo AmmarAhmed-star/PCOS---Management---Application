@@ -158,7 +158,7 @@ var symptomsList=['Cramps','Bloating','Mood Swings','Acne','Hair Fall','Fatigue'
 var selectedSymptoms=[];var marks={};var viewDate=new Date();
 var habitsList=['🥗 Healthy Breakfast','💧 8 Glasses Water','🚶 30 Min Walk','🧘 10 Min Yoga / Stretch','😴 7+ Hrs Sleep','📵 No Phone 30 Min Before Sleep'];
 var habitDone=[];
-function switchTab(tab){
+window.switchTab = function switchTab(tab){
   document.querySelectorAll('.tab').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-tab')===tab)});
   document.querySelectorAll('[id^="panel-"]').forEach(function(el){el.style.display=(el.id==='panel-'+tab)?'block':'none';});
   if(tab==='tracker')renderCalendar();
@@ -171,4 +171,4 @@ function switchTab(tab){
 }
 function saveSettings(){var d=document.getElementById('lastPeriod').value;var len=parseInt(document.getElementById('cycleLen').value)||28;if(!d){alert('Please choose your last period date');return}localStorage.setItem('cc_last',d);localStorage.setItem('cc_len',len);updateDashboard();alert('Saved ✅');}
 function updateDashboard(){var d=localStorage.getItem('cc_last');var len=parseInt(localStorage.getItem('cc_len')||28);document.getElementById('cycleLen').value=len;if(!d)return;document.getElementById('lastPeriod').value=d;var last=new Date(d);var today=new Date();today.setHours(0,0,0,0);var diff=Math.floor((today-last)/86400000)+1;var next=new Date(last);next.setDate(next.getDate()+len);var ovu=new Date(last);ovu.setDate(ovu.getDate()+Math.floor(len/2));var left=Math.max(0,Math.ceil((next-today)/86400000));document.getElementById('cycleDay').innerText='Day '+Math.max(1,diff);document.getElementById('nextPeriod').innerText=next.toDateString().slice(4);document.getElementById('ovuDay').innerText=ovu.toDateString().slice(4);document.getElementById('daysLeft').innerText=left+' days';document.getElementById('dashMsg').innerText='Cycle Day '+diff+' — Next period '+next.toDateString().slice(4)+' is expected.';}
-function renderCalendar(){var y=viewDate.getFullYear(),m=viewDate.getMonth();document.getElementById('monthLabel').innerText=viewDate.toLocaleString('en',{month:'long',year:'numeric'});var box=document.getElementById('cal
+function renderCalendar(){var y=viewDate.getFullYear(),m=viewDate.getMonth();document.getElementById('monthLabel').innerText=viewDate.toLocaleString('en',{month:'long',year:'numeric'});var box=document.
